@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
 
     private static float heightReached = 0f;
 
+    public GameObject towerBase;
+
     public static GameObject FindController()
     {
         return GameObject.Find("Root");
@@ -57,5 +59,11 @@ public class GameController : MonoBehaviour
                 TimeEnd();
             }
         }
+    }
+
+    void CameToRest(Rigidbody piece)
+    {
+        float baseY = towerBase.transform.position.y;
+        heightReached = Mathf.Max(piece.position.y - baseY, heightReached);
     }
 }
