@@ -26,6 +26,7 @@ public class AtRestSignal : MonoBehaviour
                 if (piece.GetComponent<Rigidbody>().velocity.magnitude <= 0.01)
                 {
                     SendMessageUpwards("CameToRest", piece);
+                    print("Piece came to rest");
                     cameToRest = true;
                 }
 

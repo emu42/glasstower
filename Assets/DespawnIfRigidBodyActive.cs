@@ -16,11 +16,22 @@ public class DespawnIfRigidBodyActive : MonoBehaviour
          
     }
 
-    public void EndGame()
+    private void Awake()
+    {
+        GameController.SINGLETON.startGameEvent.AddListener(StartGame);
+    }
+
+    public void StartGame()
     {
         if (!GetComponentInChildren<Rigidbody>().isKinematic)
         {
+            GameController.SINGLETON.startGameEvent.RemoveListener(StartGame);
             Destroy(this);
         }
+    }
+
+    public void EndGame()
+    {
+
     }
 }

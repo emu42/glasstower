@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class ShowTimer : MonoBehaviour
+public class ButtonRelease : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,7 +13,11 @@ public class ShowTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Updating timer display: " + GameController.timeLeftMillis);
-        GetComponent<TextMeshProUGUI>().SetText("" + GameController.timeLeftMillis);
+        
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        SendMessageUpwards("TriggerRelease");
     }
 }

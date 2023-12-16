@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
@@ -14,6 +15,14 @@ public class GameController : MonoBehaviour
 
     public GameObject towerBase;
 
+    public UnityEvent startGameEvent { get; private set; } = new();
+
+    public static GameController SINGLETON { get; private set; }
+
+    public void Awake()
+    {
+        SINGLETON = this;
+    }
     public static GameObject FindController()
     {
         return GameObject.Find("Root");
@@ -39,6 +48,7 @@ public class GameController : MonoBehaviour
         gameStopped = false;
         heightReached = 0f;
 
+        startGameEvent.Invoke();
         BroadcastMessage("StartGame");
         print("Sent start message");
     }
@@ -70,4 +80,8 @@ public class GameController : MonoBehaviour
         
     }
 
+    public void GameStartButtonPressed()
+    {
+        GameStart();
+    }
 }
