@@ -40,6 +40,7 @@ public class GameController : MonoBehaviour
         heightReached = 0f;
 
         BroadcastMessage("StartGame");
+        print("Sent start message");
     }
 
     // Start is called before the first frame update

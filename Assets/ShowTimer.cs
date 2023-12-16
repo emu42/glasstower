@@ -14,6 +14,7 @@ public class ShowTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("Updating timer display: " + GameController.timeLeftMillis);
         GetComponent<TextMeshPro>().SetText("" + GameController.timeLeftMillis);
     }
 }
