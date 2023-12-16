@@ -7,36 +7,21 @@ using UnityEngine.XR;
 
 public class PlaceInCenterOfPlayspace : MonoBehaviour
 {
-    public GameObject placeThis;
+    public GameObject markPlayspaceBorderWithThis;
+
+    public GameObject moveThisToCenterOfPlayspace;
 
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        List<XRInputSubsystem> lst = new List<XRInputSubsystem>();
-        SubsystemManager.GetInstances<XRInputSubsystem>(lst);
-        for (int i = 0; i < lst.Count; i++)
-        {
-            List<Vector3> bps = new List<Vector3>();
-            bool v = lst[i].TryGetBoundaryPoints(bps);
-            print("boundary found: " + v);
-            if (v)
-            {
-                foreach (Vector3 bp in bps)
-                {
-                    Instantiate(placeThis, bp, Quaternion.identity);
-                }
-            }
-        }
-        */
         Vector3[] bps = PXR_Boundary.GetGeometry(BoundaryType.OuterBoundary);
 
         // for debugging
-        if (placeThis != null)
+        if (markPlayspaceBorderWithThis != null)
         {
             foreach (Vector3 bp in bps)
             {
-                Instantiate(placeThis, bp, Quaternion.identity);
+                Instantiate(markPlayspaceBorderWithThis, bp, Quaternion.identity);
             }
         }
 

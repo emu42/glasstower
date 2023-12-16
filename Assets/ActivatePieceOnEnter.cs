@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class ActivatePieceOnEnter : MonoBehaviour
 {
-    public GameObject inactivePiece;
+    public GameObject newPiece;
 
-    private GameObject prefab;
+    public GameObject prefab;
 
+    private bool ready = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        prefab = inactivePiece;
+        
     }
 
     // Update is called once per frame
@@ -22,24 +22,39 @@ public class ActivatePieceOnEnter : MonoBehaviour
         
     }
 
+    public void StartGame()
+    {
+        ready = true;
+        newPiece = Instantiate(prefab, transform.parent);
+        newPiece.SetActive(true);
+    }
+
+    public void EndGame()
+    {
+        ready = false;
+        Destroy(newPiece);
+        newPiece = null;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         print("triggered on enter");
-        if (inactivePiece != null)
+        if (newPiece != null && ready)
         {
             print("activated piece");
-            inactivePiece.GetComponentInChildren<Rigidbody>().isKinematic = false;
-            inactivePiece = null;
+            newPiece.GetComponentInChildren<Rigidbody>().isKinematic = false;
+            newPiece = null;
         }
     }
 
     private void PrepareNext()
     {
-        if (inactivePiece == null)
+        if (newPiece == null && ready)
         {
             print("spawning new piece");
-            inactivePiece = Instantiate(prefab, transform.position, Quaternion.identity);
-            inactivePiece.GetComponentInChildren<Rigidbody>().isKinematic = true;
+            newPiece = Instantiate(prefab, transform.parent);
+            newPiece.GetComponentInChildren<Rigidbody>().isKinematic = true;
+            newPiece.SetActive(true);
         }
     }
 }
