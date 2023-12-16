@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EmuTestScene.unity
     guid: e0369d0bda555f945a1cded24abb7cc0
   - enabled: 1
