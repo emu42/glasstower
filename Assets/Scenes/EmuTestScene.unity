@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 264667620}
   - component: {fileID: 264667619}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1183,6 +1183,10 @@ PrefabInstance:
       propertyPath: m_StartingInteractionOverridesMap.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3648778466121408627, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
+      propertyPath: placeThis
+      value: 
+      objectReference: {fileID: 1372922354}
     - target: {fileID: 3711799367079663623, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
       propertyPath: m_Move
       value: 
