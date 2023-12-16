@@ -61,9 +61,11 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void CameToRest(Rigidbody piece)
+    public void CameToRest(GameObject piece)
     {
         float baseY = towerBase.transform.position.y;
-        heightReached = Mathf.Max(piece.position.y - baseY, heightReached);
+        float pieceY = piece.GetComponent<BoxCollider>().bounds.max.y; 
+        heightReached = Mathf.Max(pieceY - baseY, heightReached);
+        
     }
 }

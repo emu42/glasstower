@@ -6,7 +6,7 @@ public class AtRestSignal : MonoBehaviour
 {
     private bool cameToRest = false;
 
-    public Rigidbody rb;
+    public GameObject piece;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +23,9 @@ public class AtRestSignal : MonoBehaviour
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f);
             if (hitColliders.Length == 0)
             {
-                if (rb.velocity.magnitude <= 0.01)
+                if (piece.GetComponent<Rigidbody>().velocity.magnitude <= 0.01)
                 {
-                    SendMessageUpwards("CameToRest", rb);
+                    SendMessageUpwards("CameToRest", piece);
                     cameToRest = true;
                 }
 
