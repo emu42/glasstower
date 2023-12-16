@@ -6,11 +6,11 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    private static float timeLeftMillis;
+    public static float timeLeftMillis;
 
     private static bool gameStopped = true;
 
-    private static float heightReached = 0f;
+    public static float heightReached = 0f;
 
     public GameObject towerBase;
 
@@ -68,4 +68,5 @@ public class GameController : MonoBehaviour
         heightReached = Mathf.Max(pieceY - baseY, heightReached);
         
     }
+
 }
