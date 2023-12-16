@@ -1323,16 +1323,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4710497675663264238, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454594071094758631, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7313654230448209575, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
       propertyPath: m_Name
       value: CustomXRInteractionSetup
       objectReference: {fileID: 0}
+    - target: {fileID: 8677371567480465662, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014170783705847993, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 1593205607}
     - target: {fileID: 9014170783728641054, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9014170785475729497, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
+      propertyPath: m_ModelPrefab
+      value: 
+      objectReference: {fileID: 8270855663187062767, guid: 3505f020988dfe64e9258c2a1ea668d4, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1936635735476496658, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9014170783809206332, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
@@ -1388,6 +1409,11 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!4 &1593205607 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8806206696109447350, guid: ad105d01f5242264fae10c2ba56f3283, type: 3}
+  m_PrefabInstance: {fileID: 1593205604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
