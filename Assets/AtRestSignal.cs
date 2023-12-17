@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AtRestSignal : MonoBehaviour
@@ -17,11 +18,18 @@ public class AtRestSignal : MonoBehaviour
     {
         if (!cameToRest && gameObject.activeSelf)
         {
+
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            if (!rb.isKinematic) { 
+
+            if ( rb == null) 
+            {
+                    print("OMG!!! rigid body missing!!");
+            }
+            if (rb != null && !rb.isKinematic) {
+                print("check proximity");
                 Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.0f, 1 << 7);  // check on proximity layer
                 print("num colliders " + hitColliders.Length);
-                if (hitColliders.Length == 0 && rb.velocity.magnitude <= 0.01)
+                if (hitColliders == null || (hitColliders.Length == 0) && rb.velocity.magnitude <= 0.01)
                 {
                     print("zero movement");
                     GameController.SINGLETON.CameToRest(gameObject);

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class OnImpactShatter : MonoBehaviour
 {
-    private static float SHATTER_THRESHOLD = 1.5f;
+    private static float SHATTER_THRESHOLD = 11.5f;
+
+    private bool cameToRest = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,37 @@ public class OnImpactShatter : MonoBehaviour
             Destroy(gameObject);
 
             // TODO: particles and shatter sound
+        }
+    }
+
+    
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (!cameToRest && gameObject.activeSelf)
+        {
+
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+
+            if (rb == null)
+            {
+                print("OMG!!! rigid body missing!!");
+            }
+            if (rb != null && !rb.isKinematic)
+            {
+                print("check proximity");
+                Collider[] hitColliders = Physics.OverlapSphere(transform.position, 0.3f, 1 << 7);  // check on proximity layer
+                print("num colliders " + hitColliders.Length);
+                if (hitColliders == null || (hitColliders.Length == 0) && rb.velocity.magnitude <= 0.01)
+                {
+                    print("zero movement");
+                    GameController.SINGLETON.CameToRest(gameObject);
+                    //SendMessageUpwards("CameToRest", piece);
+                    print("Piece came to rest");
+                    cameToRest = true;
+
+                }
+            }
         }
     }
 }

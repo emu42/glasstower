@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
 
     public AudioClip pieceAtRestClip;
 
+    public AudioClip music;
 
 
     public UnityEvent startGameEvent { get; private set; } = new();
@@ -42,30 +43,37 @@ public class GameController : MonoBehaviour
 
     public void CollisionEnd()
     {
-        print("collision game over triggered");
-        gameStopped = true;
+        if (!gameStopped) 
+        {
+            
+            print("collision game over triggered");
+            gameStopped = true;
 
-        //BroadcastMessage("EndGame");
-        endGameEvent.Invoke();
+            //BroadcastMessage("EndGame");
+            endGameEvent.Invoke();
 
-        GetComponent<AudioSource>().PlayOneShot(gameEndClip);
+            GetComponent<AudioSource>().PlayOneShot(gameEndClip);
+        }
 
     }
 
     private void TimeEnd()
     {
-        gameStopped = true;
+        if (!gameStopped)
+        {
+            gameStopped = true;
 
-        //BroadcastMessage("EndGame");
-        endGameEvent.Invoke();
+            //BroadcastMessage("EndGame");
+            endGameEvent.Invoke();
 
-        GetComponent<AudioSource>().PlayOneShot(gameEndClip);
+            GetComponent<AudioSource>().PlayOneShot(gameEndClip);
+        }
     }
 
     public void GameStart()
     {
         print("Starting game");
-        timeLeft = 10f;
+        timeLeft = 30f;
         gameStopped = false;
         heightReached = 0f;
 
@@ -74,6 +82,9 @@ public class GameController : MonoBehaviour
         print("Sent start message");
 
         GetComponent<AudioSource>().PlayOneShot(gameStartClip);
+
+
+        //GetComponent<AudioSource>().Play(music);
 
     }
 
@@ -104,6 +115,8 @@ public class GameController : MonoBehaviour
 
         GetComponent<AudioSource>().PlayOneShot(pieceAtRestClip);
 
+        print("increasing timer for object placed");
+        timeLeft += 5f;
     }
 
     public void GameStartButtonPressed()
