@@ -14,6 +14,6 @@ public class ShowHeight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<TextMeshProUGUI>().SetText("Height reached:\n" + GameController.heightReached);
+        GetComponent<TextMeshProUGUI>().SetText("Height reached:\n" + string.Format("{0:0}", GameController.heightReached * 100) + " cm");
     }
 }

@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class GameController : MonoBehaviour
 {
 
-    public static float timeLeftMillis;
+    public static float timeLeft;
 
     private static bool gameStopped = true;
 
@@ -44,11 +44,11 @@ public class GameController : MonoBehaviour
 
     public void GameStart()
     {
-        timeLeftMillis = 30000f;
+        timeLeft = 30f;
         gameStopped = false;
         heightReached = 0f;
 
-        startGameEvent.Invoke();
+        //startGameEvent.Invoke();
         BroadcastMessage("StartGame");
         print("Sent start message");
     }
@@ -64,8 +64,8 @@ public class GameController : MonoBehaviour
     {
         if (!gameStopped)
         {
-            timeLeftMillis -= Mathf.Max(Time.deltaTime, 0f);
-            if (timeLeftMillis == 0f)
+            timeLeft = Mathf.Max(timeLeft - Time.deltaTime, 0f);
+            if (timeLeft == 0f)
             {
                 TimeEnd();
             }

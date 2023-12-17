@@ -14,7 +14,10 @@ public class ShowTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Updating timer display: " + GameController.timeLeftMillis);
-        GetComponent<TextMeshProUGUI>().SetText("" + GameController.timeLeftMillis);
+        float time = GameController.timeLeft;
+        int seconds = ((int)time % 60);
+        int minutes = ((int)time / 60);
+        string timeStr = string.Format("{0:00}:{1:00}", minutes, seconds);
+        GetComponent<TextMeshProUGUI>().SetText(timeStr);
     }
 }

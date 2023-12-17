@@ -16,7 +16,8 @@ public class ButtonTrigger : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
         print("Triggered button");
         AudioSource audioData = GetComponent<AudioSource>();

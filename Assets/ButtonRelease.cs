@@ -16,7 +16,7 @@ public class ButtonRelease : MonoBehaviour
         
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collider)
     {
         SendMessageUpwards("TriggerRelease");
     }
