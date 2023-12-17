@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class OnImpactShatter : MonoBehaviour
 {
-    private static float SHATTER_THRESHOLD = 11.5f;
+    private static float SHATTER_THRESHOLD = 2.0f;
 
     private bool cameToRest = false;
 
+    private int forbiddenLayer = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,8 @@ public class OnImpactShatter : MonoBehaviour
         Vector3 velocity = collision.relativeVelocity;
 
         print("Collision detected with magnitude: " + velocity.magnitude);
-        if (velocity.magnitude > SHATTER_THRESHOLD)
+        if (velocity.magnitude > SHATTER_THRESHOLD || 
+            collision.collider.gameObject.layer == forbiddenLayer)
         {
             print("Die die die!!");
             GameController.SINGLETON.CollisionEnd();
