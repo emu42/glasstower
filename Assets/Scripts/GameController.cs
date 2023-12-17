@@ -17,11 +17,14 @@ public class GameController : MonoBehaviour
 
     public UnityEvent startGameEvent { get; private set; } = new();
 
+    public UnityEvent endGameEvent { get; private set; } = new();
+
     public static GameController SINGLETON { get; private set; }
 
     public void Awake()
     {
         SINGLETON = this;
+        print("GameController singleton initialized");
     }
     public static GameObject FindController()
     {
@@ -33,6 +36,7 @@ public class GameController : MonoBehaviour
         gameStopped = true;
 
         BroadcastMessage("EndGame");
+        endGameEvent.Invoke();
     }
 
     private void TimeEnd()
@@ -40,16 +44,18 @@ public class GameController : MonoBehaviour
         gameStopped = true;
 
         BroadcastMessage("EndGame");
+        endGameEvent.Invoke();
     }
 
     public void GameStart()
     {
-        timeLeft = 30f;
+        print("Starting game");
+        timeLeft = 10f;
         gameStopped = false;
         heightReached = 0f;
 
-        //startGameEvent.Invoke();
-        BroadcastMessage("StartGame");
+        startGameEvent.Invoke();
+        //BroadcastMessage("StartGame");
         print("Sent start message");
     }
 
