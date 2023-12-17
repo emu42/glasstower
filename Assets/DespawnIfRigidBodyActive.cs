@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DespawnIfRigidBodyActive : MonoBehaviour
 {
+    public GameObject spawnThisOnShatter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +25,13 @@ public class DespawnIfRigidBodyActive : MonoBehaviour
 
     void StartGame()
     {
+        // play sound
+        //Instantiate(spawnThisOnShatter, transform.parent.position, Quaternion.identity);
+
         print("Despawning");
-        Destroy(gameObject);/*
+        Destroy(gameObject);
+        
+        /*
         if (!GetComponentInChildren<Rigidbody>().isKinematic)
         {
             GameController.SINGLETON.startGameEvent.RemoveListener(StartGame);
