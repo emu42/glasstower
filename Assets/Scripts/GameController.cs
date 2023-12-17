@@ -33,9 +33,10 @@ public class GameController : MonoBehaviour
 
     public void CollisionEnd()
     {
+        print("collision game over triggered");
         gameStopped = true;
 
-        BroadcastMessage("EndGame");
+        //BroadcastMessage("EndGame");
         endGameEvent.Invoke();
     }
 
@@ -43,7 +44,7 @@ public class GameController : MonoBehaviour
     {
         gameStopped = true;
 
-        BroadcastMessage("EndGame");
+        //BroadcastMessage("EndGame");
         endGameEvent.Invoke();
     }
 

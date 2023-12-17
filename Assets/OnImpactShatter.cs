@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OnImpactShatter : MonoBehaviour
 {
-    private static float SHATTER_THRESHOLD = 10f;
+    private static float SHATTER_THRESHOLD = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +22,15 @@ public class OnImpactShatter : MonoBehaviour
     {
         Vector3 velocity = collision.relativeVelocity;
 
+        print("Collision detected with magnitude: " + velocity.magnitude);
         if (velocity.magnitude > SHATTER_THRESHOLD)
         {
             print("Die die die!!");
-            SendMessageUpwards("CollisonEnd");
+            GameController.SINGLETON.CollisionEnd();
+            //SendMessageUpwards("CollisonEnd");
+            Destroy(gameObject);
+
+            // TODO: particles and shatter sound
         }
     }
 }
