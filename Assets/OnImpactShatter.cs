@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OnImpactShatter : MonoBehaviour
 {
-    private static float SHATTER_THRESHOLD = 2.0f;
+    private static float SHATTER_THRESHOLD = 2.5f;
 
     private bool cameToRest = false;
 

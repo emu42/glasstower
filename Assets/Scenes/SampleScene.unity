@@ -1194,6 +1194,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 7d02519ee5c8cb745b09b59fc3d367fe, type: 2}
     - target: {fileID: 2550463727306718371, guid: 00c9c177e828a57439e290aef2a23b3f, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550463727306718371, guid: 00c9c177e828a57439e290aef2a23b3f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -1851,6 +1855,7 @@ Transform:
   - {fileID: 954090022}
   - {fileID: 924875304}
   - {fileID: 1241364536}
+  - {fileID: 1811576875}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &925427104
@@ -2997,7 +3002,6 @@ Transform:
   - {fileID: 1572132729}
   - {fileID: 474172589}
   - {fileID: 1417665000}
-  - {fileID: 1811576875}
   m_Father: {fileID: 925427103}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1548251155
@@ -3530,7 +3534,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1546253968}
+    m_TransformParent: {fileID: 925427103}
     m_Modifications:
     - target: {fileID: 100000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
       propertyPath: m_Name
@@ -3538,27 +3542,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.39955553
+      value: 2.19051
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
       propertyPath: m_LocalScale.y
-      value: 9.464
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.28386518
+      value: 2.1905103
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0607
+      value: 1.0973446
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.18
+      value: -0.59099996
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.17605
+      value: 0.5291357
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3586,6 +3590,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: d21bbdbe4ec1d1249b99d1b8178533fa, type: 3}
@@ -3630,7 +3638,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -3710,7 +3718,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 4e-45, z: 4.86e-42, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 7.1e-44, z: 1.324e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0

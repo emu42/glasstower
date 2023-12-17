@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4655069886317751867}
   - component: {fileID: 3467540050961109063}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: HandCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.049999997, z: 0.19999999}
+  m_LocalScale: {x: 0.1, y: 0.02, z: 0.19999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3475118261464492563}

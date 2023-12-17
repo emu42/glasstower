@@ -27,4 +27,10 @@ public class FollowHandsController : MonoBehaviour
         rb.angularVelocity = rotationDifferenceInDegree * Mathf.Deg2Rad / Time.fixedDeltaTime;
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("collided with: "+collision.gameObject.name);
+    }
+
 }
