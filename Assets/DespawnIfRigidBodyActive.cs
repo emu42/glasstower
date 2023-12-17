@@ -7,7 +7,8 @@ public class DespawnIfRigidBodyActive : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        print("Registering with singleton for cleanup");
+        GameController.SINGLETON.startGameEvent.AddListener(StartGame);
     }
 
     // Update is called once per frame
@@ -16,11 +17,23 @@ public class DespawnIfRigidBodyActive : MonoBehaviour
          
     }
 
-    public void EndGame()
+    private void Awake()
     {
+    }
+
+    void StartGame()
+    {
+        print("Despawning");
+        Destroy(gameObject);/*
         if (!GetComponentInChildren<Rigidbody>().isKinematic)
         {
+            GameController.SINGLETON.startGameEvent.RemoveListener(StartGame);
             Destroy(this);
-        }
+        }*/
+    }
+
+    public void EndGame()
+    {
+
     }
 }

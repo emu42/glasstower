@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameController : MonoBehaviour
 {
 
-    public static float timeLeftMillis;
+    public static float timeLeft;
 
     private static bool gameStopped = true;
 
@@ -14,6 +15,27 @@ public class GameController : MonoBehaviour
 
     public GameObject towerBase;
 
+
+    public AudioClip gameStartClip;
+
+    public AudioClip gameEndClip;
+
+    public AudioClip pieceAtRestClip;
+
+    public AudioClip music;
+
+
+    public UnityEvent startGameEvent { get; private set; } = new();
+
+    public UnityEvent endGameEvent { get; private set; } = new();
+
+    public static GameController SINGLETON { get; private set; }
+
+    public void Awake()
+    {
+        SINGLETON = this;
+        print("GameController singleton initialized");
+    }
     public static GameObject FindController()
     {
         return GameObject.Find("Root");
@@ -21,26 +43,49 @@ public class GameController : MonoBehaviour
 
     public void CollisionEnd()
     {
-        gameStopped = true;
+        if (!gameStopped) 
+        {
+            
+            print("collision game over triggered");
+            gameStopped = true;
 
-        BroadcastMessage("EndGame");
+            //BroadcastMessage("EndGame");
+            endGameEvent.Invoke();
+
+            GetComponent<AudioSource>().PlayOneShot(gameEndClip);
+        }
+
     }
 
     private void TimeEnd()
     {
-        gameStopped = true;
+        if (!gameStopped)
+        {
+            gameStopped = true;
 
-        BroadcastMessage("EndGame");
+            //BroadcastMessage("EndGame");
+            endGameEvent.Invoke();
+
+            GetComponent<AudioSource>().PlayOneShot(gameEndClip);
+        }
     }
 
     public void GameStart()
     {
-        timeLeftMillis = 30000f;
+        print("Starting game");
+        timeLeft = 30f;
         gameStopped = false;
         heightReached = 0f;
 
-        BroadcastMessage("StartGame");
+        startGameEvent.Invoke();
+        //BroadcastMessage("StartGame");
         print("Sent start message");
+
+        GetComponent<AudioSource>().PlayOneShot(gameStartClip);
+
+
+        //GetComponent<AudioSource>().Play(music);
+
     }
 
     // Start is called before the first frame update
@@ -54,8 +99,8 @@ public class GameController : MonoBehaviour
     {
         if (!gameStopped)
         {
-            timeLeftMillis -= Mathf.Max(Time.deltaTime, 0f);
-            if (timeLeftMillis == 0f)
+            timeLeft = Mathf.Max(timeLeft - Time.deltaTime, 0f);
+            if (timeLeft == 0f)
             {
                 TimeEnd();
             }
@@ -67,7 +112,15 @@ public class GameController : MonoBehaviour
         float baseY = towerBase.transform.position.y;
         float pieceY = piece.GetComponent<BoxCollider>().bounds.max.y; 
         heightReached = Mathf.Max(pieceY - baseY, heightReached);
-        
+
+        GetComponent<AudioSource>().PlayOneShot(pieceAtRestClip);
+
+        print("increasing timer for object placed");
+        timeLeft += 5f;
     }
 
+    public void GameStartButtonPressed()
+    {
+        GameStart();
+    }
 }

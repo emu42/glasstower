@@ -15,8 +15,8 @@ TagManager:
   - SpawnerExit
   - Controller
   - PieceProximity
-  - 
-  - 
+  - PhysicsButton
+  - Floor
   - 
   - 
   - 

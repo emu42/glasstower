@@ -8,13 +8,16 @@ public class ActivatePieceOnEnter : MonoBehaviour
 
     public GameObject prefab;
 
-    private bool ready = true;
+    private bool ready = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartGame();
+        print("Registering spawner reset");
+        GameController.SINGLETON.startGameEvent.AddListener(StartGame);
+        GameController.SINGLETON.endGameEvent.AddListener(EndGame);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -25,8 +28,7 @@ public class ActivatePieceOnEnter : MonoBehaviour
     public void StartGame()
     {
         ready = true;
-        newPiece = Instantiate(prefab, transform.parent);
-        newPiece.SetActive(true);
+        PrepareNext();
     }
 
     public void EndGame()
@@ -49,12 +51,13 @@ public class ActivatePieceOnEnter : MonoBehaviour
 
     private void PrepareNext()
     {
+        print("PrepareNext called");
         if (newPiece == null && ready)
         {
             print("spawning new piece");
             newPiece = Instantiate(prefab, transform.parent);
             newPiece.GetComponentInChildren<Rigidbody>().isKinematic = true;
-            newPiece.SetActive(true);
+            //newPiece.SetActive(true);
         }
     }
 }
