@@ -15,6 +15,15 @@ public class GameController : MonoBehaviour
 
     public GameObject towerBase;
 
+
+    public AudioClip gameStartClip;
+
+    public AudioClip gameEndClip;
+
+    public AudioClip pieceAtRestClip;
+
+
+
     public UnityEvent startGameEvent { get; private set; } = new();
 
     public UnityEvent endGameEvent { get; private set; } = new();
@@ -38,6 +47,9 @@ public class GameController : MonoBehaviour
 
         //BroadcastMessage("EndGame");
         endGameEvent.Invoke();
+
+        GetComponent<AudioSource>().PlayOneShot(gameEndClip);
+
     }
 
     private void TimeEnd()
@@ -46,6 +58,8 @@ public class GameController : MonoBehaviour
 
         //BroadcastMessage("EndGame");
         endGameEvent.Invoke();
+
+        GetComponent<AudioSource>().PlayOneShot(gameEndClip);
     }
 
     public void GameStart()
@@ -58,6 +72,9 @@ public class GameController : MonoBehaviour
         startGameEvent.Invoke();
         //BroadcastMessage("StartGame");
         print("Sent start message");
+
+        GetComponent<AudioSource>().PlayOneShot(gameStartClip);
+
     }
 
     // Start is called before the first frame update
@@ -84,7 +101,9 @@ public class GameController : MonoBehaviour
         float baseY = towerBase.transform.position.y;
         float pieceY = piece.GetComponent<BoxCollider>().bounds.max.y; 
         heightReached = Mathf.Max(pieceY - baseY, heightReached);
-        
+
+        GetComponent<AudioSource>().PlayOneShot(pieceAtRestClip);
+
     }
 
     public void GameStartButtonPressed()
