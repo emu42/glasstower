@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OnImpactShatter : MonoBehaviour
 {
+    public GameObject spawnThisOnShatter;
+
     private static float SHATTER_THRESHOLD = 2.5f;
 
     private bool cameToRest = false;
@@ -32,10 +34,11 @@ public class OnImpactShatter : MonoBehaviour
         {
             print("Die die die!!");
             GameController.SINGLETON.CollisionEnd();
-            //SendMessageUpwards("CollisonEnd");
             Destroy(gameObject);
 
-            // TODO: particles and shatter sound
+            // play sound
+            Instantiate(spawnThisOnShatter, transform.parent.position, Quaternion.identity);
+            // TODO: particles
         }
     }
 
@@ -61,7 +64,6 @@ public class OnImpactShatter : MonoBehaviour
                 {
                     print("zero movement");
                     GameController.SINGLETON.CameToRest(gameObject);
-                    //SendMessageUpwards("CameToRest", piece);
                     print("Piece came to rest");
                     cameToRest = true;
 

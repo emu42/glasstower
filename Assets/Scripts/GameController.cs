@@ -22,8 +22,6 @@ public class GameController : MonoBehaviour
 
     public AudioClip pieceAtRestClip;
 
-    public AudioClip music;
-
 
     public UnityEvent startGameEvent { get; private set; } = new();
 
@@ -78,13 +76,9 @@ public class GameController : MonoBehaviour
         heightReached = 0f;
 
         startGameEvent.Invoke();
-        //BroadcastMessage("StartGame");
         print("Sent start message");
 
         GetComponent<AudioSource>().PlayOneShot(gameStartClip);
-
-
-        //GetComponent<AudioSource>().Play(music);
 
     }
 

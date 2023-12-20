@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567492039d9756e478fb414366ff5b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnThisOnShatter: {fileID: 2347199386373659362, guid: 4c0616839b9087f44b9a703fb0fb78d9, type: 3}
 --- !u!1 &7051878106317152164
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,3 +191,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44f47c60a636ba42a84712ef78279d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnThisOnShatter: {fileID: 2347199386373659362, guid: 4c0616839b9087f44b9a703fb0fb78d9, type: 3}
