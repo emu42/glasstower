@@ -1798,7 +1798,6 @@ MonoBehaviour:
   gameStartClip: {fileID: 8300000, guid: 1b14e210060886e419c874d004f024a4, type: 3}
   gameEndClip: {fileID: 8300000, guid: e5c91b41b5711624ebaf31cbb3293dbb, type: 3}
   pieceAtRestClip: {fileID: 8300000, guid: d90fbc77c40835b44b6079e690f16c6f, type: 3}
-  music: {fileID: 0}
 --- !u!4 &925427103
 Transform:
   m_ObjectHideFlags: 0
@@ -3741,7 +3740,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6e-45, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 2.4e-44, z: 1.092e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -4504,7 +4503,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

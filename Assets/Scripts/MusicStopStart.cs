@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Jobs;
 
 public class MusicStopStart : MonoBehaviour
 {
-
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +16,10 @@ public class MusicStopStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void StartMusic()
     {
-        GetComponent<AudioSource>().loop = true;
         GetComponent<AudioSource>().Play(); 
     }
 
